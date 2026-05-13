@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CM Palahara Kada | Traditional Kerala Snacks</title>
+    <meta name="description" content="Authentic handmade Kerala snacks since 1998. Banana chips, Sharkara Varatti, and more. Naadan Ruchiyude Koottukaran.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Zilla+Slab:wght@500;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2d5a27; /* Deep Kerala Green */
+            --secondary: #f4b400; /* Banana Yellow */
+            --accent: #e67e22; /* Jaggery Brown */
+            --bg: #fdfaf0; /* Off-white / Rice paper */
+            --text: #2c3e50;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Zilla Slab', serif;
+        }
+
+        /* --- Animations --- */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Header & Hero --- */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.05), transparent);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .logo-container {
+            max-width: 300px;
+            margin: 0 auto;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+        }
+
+        .hero {
+            padding: 5rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: 'Authentic Kerala';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 12vw;
+            font-weight: 900;
+            color: rgba(45, 90, 39, 0.03);
+            white-space: nowrap;
+            z-index: -1;
+            font-family: 'Zilla Slab', serif;
+        }
+
+        .welcome-text {
+            font-family: 'Caveat', cursive;
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: -1rem;
+            opacity: 0.8;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: var(--primary);
+            margin: 1rem 0;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+
+        .hero .est {
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #7f8c8d;
+            background: var(--white);
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            border: 1px solid #eee;
+        }
+
+        /* --- Floating Chips Decoration --- */
+        .chip {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: var(--secondary);
+            border-radius: 50%;
+            opacity: 0.4;
+            filter: blur(2px);
+            z-index: -1;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        /* --- Cartoon Shop Design --- */
+        .shop-front {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--white);
+            border: 8px solid var(--primary);
+            border-radius: 40px 40px 10px 10px;
+            padding: 4rem 2rem;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+            margin-bottom: 4rem;
+        }
+
+        .shop-front::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            height: 40px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--secondary),
+                var(--secondary) 60px,
+                #d4a017 60px,
+                #d4a017 120px
+            );
+            border-radius: 20px 20px 0 0;
+            border: 5px solid var(--primary);
+        }
+
+        /* --- Products Grid --- */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: var(--bg);
+            border-radius: 25px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+            border-color: var(--secondary);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+        }
+
+        .product-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .product-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+        }
+
+        .product-card p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            background: var(--white);
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.1) rotate(2deg);
+        }
+
+        /* --- Info Section --- */
+        .info-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--primary);
+            color: var(--white);
+            clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
+            margin: 4rem 0;
+        }
+
+        .info-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: #222;
+            color: #888;
+        }
+
+        .contact-pill {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 800;
+            text-decoration: none;
+            margin-top: 2rem;
+            transition: transform 0.2s;
+            box-shadow: 0 10px 20px rgba(244, 180, 0, 0.3);
+        }
+
+        .contact-pill:hover {
+            transform: translateY(-5px);
+            background: #ffc400;
+        }
+
+        /* --- Banana Leaf Decoration --- */
+        .leaf-dec {
+            position: fixed;
+            width: 200px;
+            opacity: 0.1;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .leaf-1 { top: 10%; left: -50px; transform: rotate(45deg); }
+        .leaf-2 { bottom: 10%; right: -50px; transform: rotate(-135deg); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .shop-front { padding: 3rem 1rem; margin: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <svg class="leaf-dec leaf-1" viewBox="0 0 100 100">
+        <path fill="green" d="M10,50 Q50,0 90,50 Q50,100 10,50" />
+    </svg>
+    <svg class="leaf-dec leaf-2" viewBox="0 0 100 100">
+        <path fill="green" d="M10,50 Q50,0 90,50 Q50,100 10,50" />
+    </svg>
+
+    <div class="chip" style="top: 20%; left: 10%; width: 60px; height: 60px;"></div>
+    <div class="chip" style="top: 40%; right: 15%; animation-delay: 2s;"></div>
+    <div class="chip" style="bottom: 30%; left: 20%; animation-delay: 4s; width: 30px; height: 30px;"></div>
+
+    <header>
+        <div class="logo-container">
+            <img src="assets/logo.png" alt="CM Palahara Kada Logo" id="main-logo">
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="welcome-text">Traditional Taste of</div>
+        <h1>Pure Bliss</h1>
+        <div class="est">Since 1998</div>
+        <p style="margin-top: 1.5rem; color: #555; font-weight: 500; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">Handcrafted with passion in Kozhikode, using time-honored recipes and 100% pure coconut oil.</p>
+    </section>
+
+    <main class="shop-front" id="menu">
+        <h2 style="text-align: center; color: var(--primary); font-size: 2.2rem; margin-bottom: 1rem;">Our Traditional Treats</h2>
+        <p style="text-align: center; color: #777; max-width: 600px; margin: 0 auto 3rem;">We bring you the authentic taste of Kerala, made with pure coconut oil and fresh local ingredients.</p>
+
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card" style="animation: slideIn 0.5s ease forwards;">
+                <img src="assets/banana_chips.png" alt="Banana Chips" class="product-image">
+                <h3>Banana Chips</h3>
+                <p>Crispy, golden-thin slices of premium Nendran bananas, deep-fried to perfection in 100% pure coconut oil.</p>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card" style="animation: slideIn 0.7s ease forwards;">
+                <img src="assets/sharkara_varatti.png" alt="Sharkara Varatti" class="product-image">
+                <h3>Sharkara Varatti</h3>
+                <p>Thick banana chunks double-coated in rich jaggery, infused with the warmth of ginger and cardamom.</p>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card" style="animation: slideIn 0.9s ease forwards;">
+                <img src="assets/unniyappam.png" alt="Unniyappam" class="product-image">
+                <h3>Unniyappam</h3>
+                <p>Soft and spongy traditional fritters made from roasted rice flour, jaggery, and roasted coconut bits.</p>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card" style="animation: slideIn 1.1s ease forwards;">
+                <img src="assets/achappam.png" alt="Achappam" class="product-image">
+                <h3>Achappam</h3>
+                <p>Delicate, flower-shaped rose cookies that are incredibly light, crunchy, and made with fresh coconut milk.</p>
+            </div>
+        </div>
+    </main>
+
+    <section class="info-section">
+        <h2>Why CM Palahara?</h2>
+        <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-top: 2rem;">
+            <div>
+                <h4 style="font-size: 1.5rem;">100% Naadan</h4>
+                <p>Traditional Recipes</p>
+            </div>
+            <div>
+                <h4 style="font-size: 1.5rem;">Pure Oil</h4>
+                <p>Pure Coconut Oil Only</p>
+            </div>
+            <div>
+                <h4 style="font-size: 1.5rem;">No Preservatives</h4>
+                <p>Fresh From Kitchen</p>
+            </div>
+        </div>
+    </section>
+
+    <section style="text-align: center; padding: 4rem 1rem;">
+        <h3>Want a taste of tradition?</h3>
+        <p>Visit our shop in Kozhikode or order via WhatsApp</p>
+        <a href="#" class="contact-pill" id="order-btn">Order on WhatsApp</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 CM Palahara Kada. All rights reserved.</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">Authentic Snacks | Kozhikode, Kerala</p>
+    </footer>
+
+    <script>
+        // Smooth reveal on scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.product-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(card => {
+                card.style.opacity = 0;
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
