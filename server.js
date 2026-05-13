@@ -5,13 +5,17 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Serve static files from the root directory
-app.use(express.static(path.join(__dirname)));
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 // Serve index.html for all routes
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(PORT, () => {
-  console.log(`🍌 CM Palahara Kada website running at http://localhost:${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`🍌 CM Palahara Kada website running at http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;
